@@ -2,12 +2,19 @@ package com.project.bullcare.model;
 
 import com.project.bullcare.domain.Endereco;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.io.Serializable;
 
 @Entity
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "usuario")
 public class UsuarioModel implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,6 +25,7 @@ public class UsuarioModel implements Serializable {
     @Column(name = "cpf")
     private String cpf;
     @Column(name = "endereco")
+    @Embedded
     private Endereco endereco;
     @Column(name = "email")
     private String email;
