@@ -15,24 +15,26 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/bc")
-public class BcController {
+public class UserController {
 
     @Autowired
     UsuarioMapper usuarioMapper;
     @Autowired
     UsuarioRepository repository;
 
+    ObjectMapper mapper = new ObjectMapper();
+
     @PostMapping("/save")
     public ResponseEntity<String> usuario(@RequestBody Usuario payload) throws JsonProcessingException {
         UsuarioModel usuarioModel = usuarioMapper.dtoToModel(payload);
         repository.save(usuarioModel);
-        return ResponseEntity.ok(new ObjectMapper().writeValueAsString(usuarioModel));
+        return ResponseEntity.ok(mapper.writeValueAsString(usuarioModel));
     }
 
     @GetMapping("/listar")
     public ResponseEntity<String> usuarioListar() throws JsonProcessingException {
         List<UsuarioModel> usuarioModel = repository.findAll();
 
-        return ResponseEntity.ok(new ObjectMapper().writeValueAsString(usuarioModel));
+        return ResponseEntity.ok(mapper.writeValueAsString(usuarioModel));
     }
 }
