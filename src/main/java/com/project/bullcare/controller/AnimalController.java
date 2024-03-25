@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/bc")
+@RequestMapping("/bc/animal")
 public class AnimalController {
 
     @Autowired

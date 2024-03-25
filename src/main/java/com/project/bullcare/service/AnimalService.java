@@ -5,7 +5,7 @@ import com.project.bullcare.domain.dto.ResponseDTO;
 import com.project.bullcare.mapper.AnimalMapper;
 import com.project.bullcare.model.AnimalModel;
 import com.project.bullcare.repository.AnimalRepository;
-import com.project.bullcare.util.ParseAnimalDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import static com.project.bullcare.util.Constantes.*;
@@ -36,7 +36,7 @@ public class AnimalService {
     public ResponseDTO pesquisaAnimal(String identificacao) {
         if (identificacao != null) {
             AnimalModel animal = repository.findByIdentificacao(identificacao);
-            return new ResponseDTO(CONCLUIDO, animal.toString());
+            return new ResponseDTO(CONCLUIDO, animal);
         }
         return new ResponseDTO(ERRO, ANIMAL_NAO_ENCONTRADO, CAMPO_IDENTIFICACAO_VAZIO);
     }
