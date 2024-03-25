@@ -3,15 +3,15 @@ package com.project.bullcare.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.project.bullcare.domain.dto.AnimalDTO;
 import com.project.bullcare.domain.dto.ResponseDTO;
-import com.project.bullcare.repository.AnimalRepository;
 import com.project.bullcare.service.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/animal")
+@RequestMapping("/bc")
 public class AnimalController {
+
     @Autowired
     AnimalService animalService;
 
@@ -23,7 +23,7 @@ public class AnimalController {
 
     @PostMapping()
     public ResponseEntity<ResponseDTO> cadastroAnimal(@RequestBody AnimalDTO animalDTO){
-        ResponseDTO responseDTO = animalService.verificaDados(animalDTO);
+        ResponseDTO responseDTO = animalService.cadastraAnimal(animalDTO);
         return ResponseEntity.ok(responseDTO);
     }
 }
