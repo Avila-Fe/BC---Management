@@ -14,7 +14,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/bc")
+@RequestMapping("/bc/usuario")
 public class UserController {
 
     @Autowired

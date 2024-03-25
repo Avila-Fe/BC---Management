@@ -1,5 +1,10 @@
 package com.project.bullcare.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.project.bullcare.model.AnimalModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,14 +14,28 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseDTO {
 
     private String status;
     private String mensagem;
     private String erro;
+    @JsonProperty(value = "resultado")
+    private Object objeto;
 
     public ResponseDTO(String status, String mensagem) {
         this.status = status;
         this.mensagem = mensagem;
+    }
+
+    public ResponseDTO(String status, String mensagem, String erro) {
+        this.status = status;
+        this.mensagem = mensagem;
+        this.erro = erro;
+    }
+
+    public ResponseDTO(String status, Object objeto) {
+        this.status = status;
+        this.objeto = objeto;
     }
 }

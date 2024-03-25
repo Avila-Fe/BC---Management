@@ -1,11 +1,11 @@
-package com.project.bullcare.util;
+package com.project.bullcare.mapper;
 
 import com.project.bullcare.domain.dto.AnimalDTO;
 import com.project.bullcare.model.AnimalModel;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ParseAnimalDTO {
+public class AnimalMapper {
 
     public AnimalModel parse(AnimalDTO animalDTO) {
         return AnimalModel.builder()
