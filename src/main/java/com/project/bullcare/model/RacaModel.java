@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,5 +21,8 @@ public class RacaModel implements Serializable {
 
     @Column
     private String raca;
+
+    @OneToMany(mappedBy = "raca")
+    private List<AnimalModel> animais;
 
 }

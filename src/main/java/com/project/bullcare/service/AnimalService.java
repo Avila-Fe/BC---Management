@@ -3,10 +3,15 @@ package com.project.bullcare.service;
 import com.project.bullcare.domain.dto.AnimalDTO;
 import com.project.bullcare.domain.dto.ResponseDTO;
 import com.project.bullcare.mapper.AnimalMapper;
+import com.project.bullcare.mapper.RacaMapper;
 import com.project.bullcare.model.AnimalModel;
+import com.project.bullcare.model.RacaModel;
 import com.project.bullcare.repository.AnimalRepository;
+import com.project.bullcare.repository.RacaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 import static com.project.bullcare.util.Constantes.*;
 
@@ -14,28 +19,30 @@ import static com.project.bullcare.util.Constantes.*;
 public class AnimalService {
 
     @Autowired
-    AnimalRepository repository;
-
+    AnimalRepository animalRepository;
     @Autowired
-    AnimalMapper mapper;
-
+    AnimalMapper animalMapper;
+    @Autowired
+    RacaRepository racaRepository;
     @Autowired
     ValidacaoService validacaoService;
 
     public ResponseDTO cadastraAnimal(AnimalDTO animalDTO) {
-        boolean existeAnimal = validacaoService.existeAnimal(animalDTO.getIdentificacao());
+        List<String> erros = validacaoService.validaDados(animalDTO);
+        if (!erros.isEmpty()){
 
-        if (existeAnimal) {
-            AnimalModel animalModel = mapper.parse(animalDTO);
-            repository.save(animalModel);
+            RacaModel racaModel = racaRepository.findByRaca(animalDTO.getRaca());
+            AnimalModel animalModel = animalMapper.parse(animalDTO, racaModel);
+            animalRepository.save(animalModel);
+
             return new ResponseDTO(CONCLUIDO, ANIMAL_ADICIONADO);
         }
-        return new ResponseDTO(ERRO, ANIMAL_NAO_ADICIONADO, CAMPOS_VAZIOS);
+        return new ResponseDTO(ERRO, ERRO_VALIDACAO, erros);
     }
 
     public ResponseDTO pesquisaAnimal(String identificacao) {
         if (identificacao != null) {
-            AnimalModel animal = repository.findByIdentificacao(identificacao);
+            AnimalModel animal = animalRepository.findByIdentificacao(identificacao);
             return new ResponseDTO(CONCLUIDO, animal);
         }
         return new ResponseDTO(ERRO, ANIMAL_NAO_ENCONTRADO, CAMPO_IDENTIFICACAO_VAZIO);

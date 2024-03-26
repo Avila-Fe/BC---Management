@@ -9,8 +9,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RacaDTO {
+public class TipoEventoDTO {
 
-    private String raca;
+    private String tipo;
 
 }

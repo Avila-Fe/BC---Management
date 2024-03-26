@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -20,6 +22,7 @@ public class ResponseDTO {
     private String status;
     private String mensagem;
     private String erro;
+    private List<String> listaErro;
     @JsonProperty(value = "resultado")
     private Object objeto;
 
@@ -32,6 +35,12 @@ public class ResponseDTO {
         this.status = status;
         this.mensagem = mensagem;
         this.erro = erro;
+    }
+
+    public ResponseDTO(String status, String mensagem, List<String> listaErro) {
+        this.status = status;
+        this.mensagem = mensagem;
+        this.listaErro = listaErro;
     }
 
     public ResponseDTO(String status, Object objeto) {

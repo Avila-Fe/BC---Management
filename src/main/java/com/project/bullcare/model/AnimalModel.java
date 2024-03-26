@@ -36,4 +36,8 @@ public class AnimalModel implements Serializable {
     @Column
     private String dataSaida;
 
+    @ManyToOne
+    @JoinColumn(name = "raca")
+    private RacaModel raca;
+
 }

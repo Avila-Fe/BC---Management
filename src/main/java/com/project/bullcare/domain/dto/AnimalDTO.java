@@ -20,5 +20,6 @@ public class AnimalDTO {
     private String descricao;
     private String dataEntrada;
     private String dataSaida;
+    private String raca;
 
 }
