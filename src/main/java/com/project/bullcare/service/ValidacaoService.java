@@ -1,20 +1,19 @@
 package com.project.bullcare.service;
 
 import com.project.bullcare.domain.dto.AnimalDTO;
+import com.project.bullcare.domain.dto.EventoDTO;
 import com.project.bullcare.model.AnimalModel;
 import com.project.bullcare.model.RacaModel;
+import com.project.bullcare.model.TipoEventoModel;
 import com.project.bullcare.model.UsuarioModel;
-import com.project.bullcare.repository.AnimalRepository;
-import com.project.bullcare.repository.RacaRepository;
-import com.project.bullcare.repository.UsuarioRepository;
+import com.project.bullcare.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.project.bullcare.util.Constantes.ANIMAL_EXISTENTE;
-import static com.project.bullcare.util.Constantes.RACA_NAO_ENCONTRADA;
+import static com.project.bullcare.util.Constantes.*;
 
 @Service
 public class ValidacaoService {
@@ -25,12 +24,25 @@ public class ValidacaoService {
     RacaRepository racaRepository;
     @Autowired
     UsuarioRepository usuarioRepository;
+    @Autowired
+    EventoRepository eventoRepository;
+    @Autowired
+    TipoEventoRepository tipoEventoRepository;
 
-    public List<String> validaDados(AnimalDTO animalDTO){
+    public List<String> validaDadosAnimal(AnimalDTO animalDTO){
         List<String> erros = new ArrayList<>();
 
         existeAnimal(animalDTO.getIdentificacao(), erros);
         existeRaca(animalDTO.getRaca(), erros);
+
+        return erros;
+    }
+    public List<String> validaDadosEvento(EventoDTO eventoDTO){
+        List<String> erros = new ArrayList<>();
+
+        existeTipo(eventoDTO.getTipoEvento(), erros);
+        existeData(eventoDTO.getDataEvento(), erros);
+        existeDescricao(eventoDTO.getDescricao(), erros);
 
         return erros;
     }
@@ -58,4 +70,21 @@ public class ValidacaoService {
         }
     }
 
+    public void existeTipo(String tipo, List<String> erro){
+        if (tipo == null || tipo.isEmpty()){
+            erro.add(TIPO_EVENTO_VAZIO);
+        }
+    }
+
+    public void existeData(String data, List<String> erro){
+        if (data == null || data.isEmpty()){
+            erro.add(CAMPO_DATA_VAZIO);
+        }
+    }
+
+    public void existeDescricao(String descricao, List<String> erro){
+        if ( descricao == null || descricao.isEmpty()){
+            erro.add(CAMPO_DESCRICAO_VAZIO);
+        }
+    }
 }

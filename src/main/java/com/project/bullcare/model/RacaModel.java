@@ -23,6 +23,6 @@ public class RacaModel implements Serializable {
     private String raca;
 
     @OneToMany(mappedBy = "raca")
-    private List<AnimalModel> animais;
+    private List<AnimalModel> animal;
 
 }

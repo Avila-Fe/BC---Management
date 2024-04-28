@@ -28,7 +28,7 @@ public class AnimalService {
     ValidacaoService validacaoService;
 
     public ResponseDTO cadastraAnimal(AnimalDTO animalDTO) {
-        List<String> erros = validacaoService.validaDados(animalDTO);
+        List<String> erros = validacaoService.validaDadosAnimal(animalDTO);
         if (!erros.isEmpty()){
 
             RacaModel racaModel = racaRepository.findByRaca(animalDTO.getRaca());

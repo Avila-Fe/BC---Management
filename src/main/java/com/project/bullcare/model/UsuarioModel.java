@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -37,4 +38,7 @@ public class UsuarioModel implements Serializable {
     private String status;
     @Column(name = "tipoUsuario")
     private String tipoUsuario;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<FazendaModel> fazenda;
 }

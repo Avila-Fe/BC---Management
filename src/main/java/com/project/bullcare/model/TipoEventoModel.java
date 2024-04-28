@@ -21,5 +21,5 @@ public class TipoEventoModel implements Serializable {
     private String tipo;
 
     @OneToMany
-    private List<EventoModel> eventoModel;
+    private List<EventoModel> evento;
 }

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -28,5 +30,8 @@ public class EventoModel implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "tipoEvento")
-    private TipoEventoModel tipoEventoModel;
+    private TipoEventoModel tipoEvento;
+
+    @ManyToMany
+    private Set<AnimalModel> animal = new HashSet<>();
 }

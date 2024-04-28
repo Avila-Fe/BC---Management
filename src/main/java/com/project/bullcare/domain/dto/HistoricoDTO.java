@@ -7,12 +7,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class EventoDTO {
+@AllArgsConstructor
+public class HistoricoDTO {
 
+    private String animal;
+    private String evento;
+    private String unidadeDeMedida;
+    private int quantidade;
     private String descricao;
-    private String unidadeMedida;
-    private String dataEvento;
-    private String tipoEvento;
 }

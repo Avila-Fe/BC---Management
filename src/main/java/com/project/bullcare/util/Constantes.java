@@ -23,4 +23,18 @@ public class Constantes {
     public static String USUARIO_EXISTENTE = "Erro usuário já existe!";
     public static String USUARIOS_NAO_ENCONTRADOS = "Erro não há usuários na base de dados!";
     public static String USUARIO_NAO_ENCONTRADO = "Erro ao pesquisar usuário!";
+
+    public static String EVENTO_ADICIONADO = "Evento adicionado com sucesso!";
+    public static String EVENTO_NAO_ENCONTRADO = "Erro ao pesquisar evento!";
+    public static String TIPO_EVENTO_VAZIO = "O campo tipo de evento não pode ser vázio!";
+    public static String CAMPO_TIPO_EVENTO_VAZIO = "O campo tipo do evento não pode ser vazio!";
+    public static String CAMPO_DATA_VAZIO = "O campo data não pode ser vázio!";
+    public static String CAMPO_DESCRICAO_VAZIO = "O campo descrição não pode ser vázio!";
+
+    public static String TIPO_EVENTO_ADICIONADO = "Tipo de evento adicionado com sucesso!";
+    public static String TIPO_EVENTO_NAO_ADICIONADA = "Erro ao adicionar tipo de evento!";
+
+    public static String TIPO_EVENTO_NAO_ENCONTRADO = "Erro ao pesquisar tipo de evento, não há tipo de eeventos na base de dados!";
+
+
 }

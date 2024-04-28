@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -39,5 +41,16 @@ public class AnimalModel implements Serializable {
     @ManyToOne
     @JoinColumn(name = "raca")
     private RacaModel raca;
+
+    @ManyToOne
+    @JoinColumn(name = "fazenda")
+    private FazendaModel fazenda;
+
+    @ManyToMany(mappedBy = "animal")
+    @JoinTable(
+            name = "historico",
+            joinColumns = @JoinColumn(name = "evento"),
+            inverseJoinColumns = @JoinColumn(name = "animal"))
+    private Set<EventoModel> evento = new HashSet<>();
 
 }

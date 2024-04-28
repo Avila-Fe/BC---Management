@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -22,4 +23,11 @@ public class FazendaModel implements Serializable {
     private String referencia;
     @Column(name = "area")
     private String area;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario")
+    private UsuarioModel usuario;
+
+    @OneToMany(mappedBy = "fazenda")
+    private List<AnimalModel>  animalModel;
 }
