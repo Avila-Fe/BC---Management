@@ -36,6 +36,15 @@ public class FazendaService {
             }
         }
 
-        return new ResponseDTO(ERRO, FAZENDA_NAO_ADICIONADA);
+        return new ResponseDTO(ERRO, FAZENDA_NAO_ADICIONADA, erros);
+    }
+
+    public ResponseDTO listarFazendas(){
+        List<FazendaModel> fazendaModel = repository.findAll();
+        if (!fazendaModel.isEmpty()) {
+            return new ResponseDTO(CONCLUIDO, fazendaModel);
+        }
+
+        return new ResponseDTO(ERRO, FAZENDA_NAO_ENCONTRADO, FAZENDA_NAO_ENCONTRADOS);
     }
 }

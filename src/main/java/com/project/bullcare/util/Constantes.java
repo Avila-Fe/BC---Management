@@ -19,6 +19,8 @@ public class Constantes {
 
     public static String FAZENDA_ADICIONADA = "Fazenda adicionada com sucesso!";
     public static String FAZENDA_NAO_ADICIONADA = "Erro ao adicionar fazenda!";
+    public static String FAZENDA_NAO_ENCONTRADOS = "Erro não há fazendas na base de dados!";
+    public static String FAZENDA_NAO_ENCONTRADO = "Erro ao pesquisar fazendas!";
 
 
     public static String USUARIO_ADICIONADO = "Usuário adicionado com sucesso!";
