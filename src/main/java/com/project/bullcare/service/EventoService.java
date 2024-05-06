@@ -31,7 +31,8 @@ public class EventoService {
 
     public ResponseDTO pesquisaEvento(String tipo) {
         if (tipo != null) {
-            EventoModel evento = eventoRepository.findByTipoEvento(tipo);
+            TipoEventoModel tipoEvento =  new TipoEventoModel(tipo);
+            EventoModel evento = eventoRepository.findByTipoEvento(tipoEvento);
             return new ResponseDTO(CONCLUIDO, evento);
         }
         return new ResponseDTO(ERRO, EVENTO_NAO_ENCONTRADO, CAMPO_TIPO_EVENTO_VAZIO);

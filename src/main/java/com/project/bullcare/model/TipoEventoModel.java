@@ -16,10 +16,15 @@ import java.util.List;
 public class TipoEventoModel implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
     private String tipo;
 
     @OneToMany
     private List<EventoModel> evento;
+
+    public TipoEventoModel(String tipo) {
+        this.tipo = tipo;
+    }
 }
