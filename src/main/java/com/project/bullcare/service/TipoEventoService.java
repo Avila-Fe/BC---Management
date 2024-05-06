@@ -26,7 +26,7 @@ public class TipoEventoService {
     public ResponseDTO pesquisaTipoEvento() {
         List<TipoEventoModel> tipo = tipoEventoRepository.findAll();
         if (tipo != null) {
-            return new ResponseDTO(CONCLUIDO, tipo.toString());
+            return new ResponseDTO(CONCLUIDO, tipo);
         }
         return new ResponseDTO(ERRO, TIPO_EVENTO_NAO_ENCONTRADO);
     }
