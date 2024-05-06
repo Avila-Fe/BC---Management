@@ -40,10 +40,10 @@ public class EventoService {
 
     public ResponseDTO cadastraEvento(EventoDTO eventoDTO) {
         List<String> erros = validacaoService.validaDadosEvento(eventoDTO);
-        if (!erros.isEmpty()){
+        if (erros.isEmpty()){
 
-            TipoEventoModel racaModel = tipoEventoRepository.findByTipo(eventoDTO.getTipoEvento());
-            EventoModel eventoModel = eventoMapper.parse(eventoDTO, racaModel);
+            TipoEventoModel tipoEventoModel = tipoEventoRepository.findByTipo(eventoDTO.getTipoEvento());
+            EventoModel eventoModel = eventoMapper.parse(eventoDTO, tipoEventoModel);
             eventoRepository.save(eventoModel);
 
             return new ResponseDTO(CONCLUIDO, EVENTO_ADICIONADO);

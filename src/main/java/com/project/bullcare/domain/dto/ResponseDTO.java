@@ -25,6 +25,8 @@ public class ResponseDTO {
     private List<String> listaErro;
     @JsonProperty(value = "resultado")
     private Object objeto;
+    @JsonProperty(value = "resultado")
+    private List<Object> listaObjeto;
 
     public ResponseDTO(String status, String mensagem) {
         this.status = status;
@@ -46,5 +48,10 @@ public class ResponseDTO {
     public ResponseDTO(String status, Object objeto) {
         this.status = status;
         this.objeto = objeto;
+    }
+
+    public ResponseDTO(String status, List<Object> listaObjeto) {
+        this.status = status;
+        this.listaObjeto = listaObjeto;
     }
 }

@@ -28,7 +28,4 @@ public class HistoricoModel implements Serializable {
     @JoinColumn(name = "evento")
     private EventoModel evento;
 
-    private String unidadeDeMedida;
-    private int quantidade;
-    private String descricao;
 }

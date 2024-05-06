@@ -13,7 +13,5 @@ public class HistoricoDTO {
 
     private String animal;
     private String evento;
-    private String unidadeDeMedida;
-    private int quantidade;
-    private String descricao;
+
 }

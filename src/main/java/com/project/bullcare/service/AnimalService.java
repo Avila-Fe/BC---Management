@@ -29,7 +29,7 @@ public class AnimalService {
 
     public ResponseDTO cadastraAnimal(AnimalDTO animalDTO) {
         List<String> erros = validacaoService.validaDadosAnimal(animalDTO);
-        if (!erros.isEmpty()){
+        if (erros.isEmpty()){
 
             RacaModel racaModel = racaRepository.findByRaca(animalDTO.getRaca());
             AnimalModel animalModel = animalMapper.parse(animalDTO, racaModel);
