@@ -9,6 +9,7 @@ import com.project.bullcare.repository.FazendaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import static com.project.bullcare.util.Constantes.*;
 
@@ -42,7 +43,11 @@ public class FazendaService {
     public ResponseDTO listarFazendas(){
         List<FazendaModel> fazendaModel = repository.findAll();
         if (!fazendaModel.isEmpty()) {
-            return new ResponseDTO(CONCLUIDO, fazendaModel);
+            List<FazendaModel> modelList = new ArrayList<>();
+            fazendaModel.forEach((fazenda) -> {
+                modelList.add(fazendaMapper.modelToJson(fazenda));
+            });
+            return new ResponseDTO(CONCLUIDO, modelList);
         }
 
         return new ResponseDTO(ERRO, FAZENDA_NAO_ENCONTRADO, FAZENDA_NAO_ENCONTRADOS);

@@ -1,5 +1,7 @@
 package com.project.bullcare.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Table(name = "fazenda")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class FazendaModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +29,7 @@ public class FazendaModel implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "usuario")
+    @JsonIgnoreProperties("usuario")
     private UsuarioModel usuario;
 
     @OneToMany(mappedBy = "fazenda")
