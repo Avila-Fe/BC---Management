@@ -1,14 +1,10 @@
 package com.project.bullcare.controller;
 
 import com.project.bullcare.domain.dto.ResponseDTO;
-import com.project.bullcare.model.AnimalModel;
-import com.project.bullcare.model.EventoModel;
 import com.project.bullcare.service.HistoricoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/bc/historico")
