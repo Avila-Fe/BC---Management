@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/bc/tipEvento")
+@RequestMapping("/bc/tipoEvento")
 public class TipoEventoController {
 
     @Autowired
