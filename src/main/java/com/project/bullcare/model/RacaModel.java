@@ -1,5 +1,6 @@
 package com.project.bullcare.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,6 +24,7 @@ public class RacaModel implements Serializable {
     private String raca;
 
     @OneToMany(mappedBy = "raca")
+    @JsonIgnoreProperties("raca")
     private List<AnimalModel> animal;
 
 }
