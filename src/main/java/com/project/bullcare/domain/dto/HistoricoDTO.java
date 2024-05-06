@@ -7,10 +7,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class RacaDTO {
+@AllArgsConstructor
+public class HistoricoDTO {
 
-    private String raca;
+    private String animal;
+    private String evento;
 
 }

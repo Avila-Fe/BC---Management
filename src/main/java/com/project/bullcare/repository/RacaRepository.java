@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RacaRepository extends JpaRepository<RacaModel, Long> {
+
+    RacaModel findByRaca(String raca);
 }

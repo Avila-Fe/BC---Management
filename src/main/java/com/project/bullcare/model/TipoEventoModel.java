@@ -1,6 +1,5 @@
 package com.project.bullcare.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,22 +8,23 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
-@Table(name = "raca")
+@Table(name = "tipoEvento")
 @Entity
-public class RacaModel implements Serializable {
+public class TipoEventoModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column
-    private String raca;
+    private String tipo;
 
-    @OneToMany(mappedBy = "raca")
-    @JsonIgnoreProperties("raca")
-    private List<AnimalModel> animal;
+    @OneToMany
+    private List<EventoModel> evento;
 
+    public TipoEventoModel(String tipo) {
+        this.tipo = tipo;
+    }
 }

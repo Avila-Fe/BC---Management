@@ -24,7 +24,7 @@ public class RacaService {
     public ResponseDTO pesquisaRaca() {
         List<RacaModel> raca = repository.findAll();
         if (raca != null) {
-            return new ResponseDTO(CONCLUIDO, raca.toString());
+            return new ResponseDTO(CONCLUIDO, raca);
         }
         return new ResponseDTO(ERRO, RACA_NAO_ENCONTRADA);
     }
@@ -33,8 +33,8 @@ public class RacaService {
         if (racaDTO != null) {
             RacaModel racaModel = mapper.parse(racaDTO);
             repository.save(racaModel);
-            return new ResponseDTO(CONCLUIDO, ANIMAL_ADICIONADO);
+            return new ResponseDTO(CONCLUIDO, RACA_ADICIONADA);
         }
-        return new ResponseDTO(ERRO, ANIMAL_NAO_ADICIONADO, CAMPOS_VAZIOS);
+        return new ResponseDTO(ERRO, RACA_NAO_ADICIONADA, CAMPOS_VAZIOS);
     }
 }

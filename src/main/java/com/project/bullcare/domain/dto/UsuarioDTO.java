@@ -1,15 +1,14 @@
-package com.project.bullcare.domain;
+package com.project.bullcare.domain.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.project.bullcare.domain.Endereco;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario {
+@Builder
+public class UsuarioDTO {
 
     private String nome;
     private String sobreNome;

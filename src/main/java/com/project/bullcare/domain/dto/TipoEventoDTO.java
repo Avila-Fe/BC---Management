@@ -1,4 +1,4 @@
-package com.project.bullcare.domain;
+package com.project.bullcare.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,9 +9,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Fazenda {
+public class TipoEventoDTO {
 
-    private String nomeFazenda;
-    private String referencia;
-    private String area;
+    private String tipo;
+
 }
