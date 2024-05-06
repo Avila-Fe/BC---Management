@@ -1,8 +1,7 @@
 package com.project.bullcare.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.project.bullcare.domain.Usuario;
+import com.project.bullcare.domain.dto.UsuarioDTO;
 import com.project.bullcare.domain.dto.ResponseDTO;
 import com.project.bullcare.mapper.UsuarioMapper;
 import com.project.bullcare.service.UsuarioService;
@@ -23,13 +22,13 @@ public class UsuarioController {
     ObjectMapper mapper = new ObjectMapper();
 
     @PostMapping("/save")
-    public ResponseEntity<ResponseDTO> usuario(@RequestBody Usuario usuario) throws JsonProcessingException {
-        ResponseDTO responseDTO = usuarioService.cadastraUsuario(usuario);
+    public ResponseEntity<ResponseDTO> usuario(@RequestBody UsuarioDTO usuarioDTO) {
+        ResponseDTO responseDTO = usuarioService.cadastraUsuario(usuarioDTO);
         return ResponseEntity.ok(responseDTO);
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<ResponseDTO> usuarioListar() throws JsonProcessingException {
+    public ResponseEntity<ResponseDTO> usuarioListar() {
         ResponseDTO responseDTO = usuarioService.pesquisaUsuario();
         return ResponseEntity.ok(responseDTO);
     }

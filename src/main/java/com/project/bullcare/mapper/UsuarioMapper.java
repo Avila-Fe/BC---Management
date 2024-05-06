@@ -1,25 +1,23 @@
 package com.project.bullcare.mapper;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.project.bullcare.domain.Usuario;
+import com.project.bullcare.domain.dto.UsuarioDTO;
 import com.project.bullcare.model.UsuarioModel;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UsuarioMapper {
 
-    public UsuarioModel dtoToModel(Usuario usuario) {
+    public UsuarioModel dtoToModel(UsuarioDTO usuarioDTO) {
         return UsuarioModel.builder()
-                .nome(usuario.getNome())
-                .sobreNome(usuario.getSobreNome())
-                .cpf(usuario.getCpf())
-                .endereco(usuario.getEndereco())
-                .telefone(usuario.getTelefone())
-                .senha(usuario.getSenha())
-                .tipoUsuario(usuario.getTipoUsuario())
-                .status(usuario.getStatus())
-                .email(usuario.getEmail())
+                .nome(usuarioDTO.getNome())
+                .sobreNome(usuarioDTO.getSobreNome())
+                .cpf(usuarioDTO.getCpf())
+                .endereco(usuarioDTO.getEndereco())
+                .telefone(usuarioDTO.getTelefone())
+                .senha(usuarioDTO.getSenha())
+                .tipoUsuario(usuarioDTO.getTipoUsuario())
+                .status(usuarioDTO.getStatus())
+                .email(usuarioDTO.getEmail())
                 .build();
     }
 }

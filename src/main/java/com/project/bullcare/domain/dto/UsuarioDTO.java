@@ -1,5 +1,6 @@
-package com.project.bullcare.domain;
+package com.project.bullcare.domain.dto;
 
+import com.project.bullcare.domain.Endereco;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario {
+public class UsuarioDTO {
 
     private String nome;
     private String sobreNome;
@@ -20,5 +21,7 @@ public class Usuario {
     private String senha;
     private String status;
     private String tipoUsuario;
+
+
 
 }
