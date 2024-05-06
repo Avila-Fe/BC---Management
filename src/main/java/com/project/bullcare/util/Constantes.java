@@ -29,7 +29,7 @@ public class Constantes {
     public static String USUARIOS_NAO_ENCONTRADOS = "Erro não há usuários na base de dados!";
     public static String USUARIO_NAO_ENCONTRADO = "Erro ao pesquisar usuário!";
 
-    public static String EVENTO_ADICIONADO = "Evento adicionado com sucesso!";
+    public static String EVENTO_ADICIONADO = "Evento adicionado com sucesso!!";
     public static String EVENTO_NAO_ENCONTRADO = "Erro ao pesquisar evento!";
     public static String TIPO_EVENTO_VAZIO = "O campo tipo de evento não pode ser vazio!";
     public static String CAMPO_TIPO_EVENTO_VAZIO = "O campo tipo do evento não pode ser vazio!";
