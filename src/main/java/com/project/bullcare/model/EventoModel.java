@@ -32,6 +32,6 @@ public class EventoModel implements Serializable {
     @JoinColumn(name = "tipoEvento")
     private TipoEventoModel tipoEvento;
 
-    @ManyToMany
-    private Set<AnimalModel> animal = new HashSet<>();
+    @OneToMany(mappedBy = "evento")
+    private Set<HistoricoModel> historico = new HashSet<>();
 }

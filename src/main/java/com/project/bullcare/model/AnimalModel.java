@@ -46,11 +46,6 @@ public class AnimalModel implements Serializable {
     @JoinColumn(name = "fazenda")
     private FazendaModel fazenda;
 
-    @ManyToMany(mappedBy = "animal")
-    @JoinTable(
-            name = "historico",
-            joinColumns = @JoinColumn(name = "evento"),
-            inverseJoinColumns = @JoinColumn(name = "animal"))
-    private Set<EventoModel> evento = new HashSet<>();
-
+    @OneToMany(mappedBy = "animal")
+    private Set<HistoricoModel> historico = new HashSet<>();
 }
